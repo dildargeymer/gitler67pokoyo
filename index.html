@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>найти бабушек.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+        
+        .title-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                             url('https://images.unsplash.com/photo-1594736797939-1a9f8c0c1d5f?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+        }
+
+        .grandma-img {
+            transition: all 0.5s ease;
+        }
+        
+        .card:hover .grandma-img {
+            transform: scale(1.08);
+        }
+
+        .button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 40%;
+            height: 200%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255,255,255,0.4),
+                transparent
+            );
+            transform: skewX(-25deg);
+            animation: shimmer 4s infinite;
+        }
+
+        @keyframes shimmer {
+            100% { transform: translateX(400%); }
+        }
+    </style>
+</head>
+<body class="bg-[#f8f1e9] text-gray-800">
+
+    <!-- HEADER -->
+    <header class="bg-gradient-to-r from-rose-700 to-orange-600 text-white py-6 shadow-xl">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-3xl shadow-inner">
+                    👵
+                </div>
+                <div>
+                    <h1 class="title-font text-4xl font-bold tracking-tight">найти бабушек</h1>
+                    <p class="text-orange-200 text-sm -mt-1">.com — лучшие бабушки России</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-8 text-lg">
+                <a href="#" class="hover:text-orange-200 transition-colors">Каталог</a>
+                <a href="#" class="hover:text-orange-200 transition-colors">Акции</a>
+                <a href="#" class="hover:text-orange-200 transition-colors">Отзывы</a>
+            </nav>
+            <button onclick="alert('Корзина пуста... пока что 🥰')" 
+                    class="flex items-center gap-2 bg-white text-rose-700 px-6 py-3 rounded-2xl font-semibold hover:bg-orange-100 transition-colors">
+                <i class="fas fa-shopping-basket"></i>
+                <span>Корзина</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-bg h-screen flex items-center justify-center text-white relative">
+        <div class="max-w-4xl mx-auto text-center px-6 z-10">
+            <h2 class="title-font text-6xl md:text-7xl font-bold mb-6 leading-tight">
+                Найди свою<br>идеальную бабушку
+            </h2>
+            <p class="text-2xl mb-10 max-w-lg mx-auto opacity-90">
+                Переспелые, тёплые, с пирожками и мудростью. Доставка по всей стране.
+            </p>
+            <button onclick="document.getElementById('catalog').scrollIntoView({ behavior: 'smooth' })"
+                    class="button bg-white text-rose-700 text-xl font-semibold px-12 py-6 rounded-3xl hover:scale-105 transition-transform flex items-center gap-3 mx-auto">
+                <span>Смотреть бабушек</span>
+                <i class="fas fa-arrow-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalog" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-16">
+            <h2 class="title-font text-5xl font-bold mb-4">Наши бабушки</h2>
+            <p class="text-xl text-gray-600">Выбирай с душой ❤️</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Card 1 -->
+            <div class="card bg-white rounded-3xl overflow-hidden shadow-xl">
+                <div class="relative h-80">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMWf4eprZN0hR8hlUjBcTeQQD4535AIQKsrHRok_XV6g&s=10" 
+                         class="grandma-img w-full h-full object-cover" alt="Крутая бабушка">
+                    <div class="absolute top-4 right-4 bg-orange-500 text-white px-4 py-1 rounded-2xl text-sm font-medium">
+                        🔥 Хит
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="title-font text-2xl font-bold mb-3">Крутая бабушка</h3>
+                    <p class="text-gray-600 mb-6">Переспелая, парит, стоит на своём</p>
+                    <button onclick="buyGrandma(this)" 
+                            class="button w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-5 rounded-2xl text-lg font-semibold">
+                        Купить за 999₽
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card bg-white rounded-3xl overflow-hidden shadow-xl">
+                <div class="relative h-80">
+                    <img src="data:image/jpeg;base64,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" 
+                         class="grandma-img w-full h-full object-cover" alt="Бабушка в деревне">
+                </div>
+                <div class="p-8">
+                    <h3 class="title-font text-2xl font-bold mb-3">Бабушка в деревне</h3>
+                    <p class="text-gray-600 mb-6">Переспелая, любит пирожки, стоит на перилах, не курит</p>
+                    <button onclick="buyGrandma(this)" 
+                            class="button w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-5 rounded-2xl text-lg font-semibold">
+                        Купить за 799₽
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card bg-white rounded-3xl overflow-hidden shadow-xl">
+                <div class="relative h-80">
+                    <img src="https://funny.klev.club/uploads/posts/2024-03/funny-klev-club-p-smeshnie-kartinki-3-babulki-2.jpg" 
+                         class="grandma-img w-full h-full object-cover" alt="3 бабушки">
+                </div>
+                <div class="p-8">
+                    <h3 class="title-font text-2xl font-bold mb-3">3 Бабушки по цене 1</h3>
+                    <p class="text-gray-600 mb-6">Очень выгодно! Как изюм, но любят поругаться за баночку насвая</p>
+                    <button onclick="buyGrandma(this)" 
+                            class="button w-full bg-gradient-to-r from-rose-600 to-orange-600 text-white py-5 rounded-2xl text-lg font-semibold">
+                        Купить за 1499₽
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT -->
+    <section class="bg-gradient-to-br from-rose-900 to-orange-900 py-16 text-white">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <h2 class="title-font text-4xl font-bold mb-6">Готов забрать свою бабушку?</h2>
+            <p class="text-2xl mb-10">Кидай деньги сюда:</p>
+            <div class="inline-flex items-center gap-4 bg-white/10 backdrop-blur-md px-10 py-6 rounded-3xl text-3xl font-mono tracking-widest border border-white/30">
+                +77759864001
+            </div>
+            <p class="mt-8 text-orange-200">После оплаты — бабушка твоя навсегда (или пока не надоест)</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 text-center">
+        <p class="text-sm">© 2026 найти бабушек.com — Все бабушки проверены на прочность</p>
+    </footer>
+
+    <script>
+        function buyGrandma(btn) {
+            btn.innerHTML = `
+                <span class="flex items-center justify-center gap-2">
+                    <i class="fas fa-check"></i>
+                    Добавлено в корзину!
+                </span>
+            `;
+            btn.style.background = '#10b981';
+            
+            setTimeout(() => {
+                alert("🎉 Поздравляем! Бабушка уже пакует пирожки и едет к тебе!");
+                btn.innerHTML = 'Купить';
+                btn.style.background = '';
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
